@@ -13,10 +13,11 @@ const createTimerAnimator = () => {
       const sec = seconds % 60;
       timerEl.innerHTML = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(sec)
       seconds--
-      console.log(seconds);
+      buttonEl.disabled = true
 
       if (seconds < 0) {
         clearInterval(timer);
+        buttonEl.disabled = false
       }
     }, 1000);
   }
@@ -30,8 +31,6 @@ function padZero(number) {
     return number;
   }
 }
-
-
 
 const animateTimer = createTimerAnimator();
 
